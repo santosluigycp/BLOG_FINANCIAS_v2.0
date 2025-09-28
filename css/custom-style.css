@@ -1,0 +1,43 @@
+/* Importando uma fonte do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F8F9FA; /* Um cinza bem claro, quase branco */
+}
+
+/* --- PALETA DE CORES "DÓLAR" --- */
+
+.bg-dollar-green {
+    background-color: #1A4D2E; /* Verde escuro e sóbrio */
+}
+
+.text-dollar-green {
+    color: #1A4D2E;
+}
+
+.btn-gold {
+    background-color: #FFC107; /* Dourado/Amarelo */
+    color: #1A4D2E; /* Texto verde escuro para contraste */
+    border: none;
+}
+
+.btn-gold:hover {
+    background-color: #e0a800;
+    color: #1A4D2E;
+}
+
+.logo-text {
+    font-weight: 700;
+    color: #1A4D2E;
+}
+
+/* Efeito de hover nos cards */
+.card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <!--Garante que acentos (ç, á) funcionem.-->
+        
+        <!--Ajusta o site para funcionar bem em celulares.-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Define o título que aparece na aba do navegador.-->
+        <title>Tio do Lote - Finanças Pessoais</title>
+        <!--Carrega os estilos prontos do Bootstrap.-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!--Carrega seus estilos personalizados (suas cores, fontes).-->
+        <link rel="stylesheet" href="./css/custom-style.css">
+        <!--Carrega a biblioteca para mostrar ícones (redes sociais, etc).-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <!--Define o ícone que aparece na aba do navegador.-->
+        <link rel="icon" type="image/png" href="./img/logo-tio-do-lote-transparente.png">
+        <!--Carrega funções do Bootstrap (ex: menu do celular).-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!--Carrega a ferramenta para criar gráficos.-->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <!--Carrega seu script principal que controla as páginas.-->
+        <script type="module" src="./js/routers.js"></script>
+    </head>
+    <body>
+        <!--Seção do planejador financeiro. -->
+        <section class="py-5">
+            <!--Centraliza o conteúdo. -->
+                <div class="container">
+                    <!-- Cabeçalho da ferramenta. -->
+                    <div class="text-center mb-5">
+                        <!-- Ícone de carteira. -->
+                        <i class="fa-solid fa-wallet fa-3x mb-3 text-primary-brand"></i>
+                        <!-- Título principal. -->
+                        <h1 class="fw-bold">Planejador Financeiro Mensal</h1>
+                        <!-- Subtítulo com instruções. -->
+                        <p class="lead"> Adicione suas receitas e despesas para calcular seu saldo.</p>
+                    </div>
+
+                    <!--Linha para dividir Receitas e Despesas. -->
+                    <div class="row g-5">
+                        <!--Coluna da esquerda (Receitas). -->
+                        <div class="col-md-6">
+                            <!-- Título "Receitas". -->
+                            <h3 class="text-success">Receitas</h3>
+                            <!-- Formulário para adicionar receitas. -->
+                            <form id="formReceitas" class="mb-3">
+                                <!-- Agrupa os campos de digitação. -->
+                                <div class="input-group">
+                                    <!-- Campo para digitar a descrição. -->
+                                    <input
+                                        type="text"
+                                        id="descReceita"
+                                        class="form-control"
+                                        placeholder="Descrição (ex: Salário)"
+                                        required
+                                    >
+                                    <!-- Campo para digitar o valor. -->
+                                    <input
+                                        type="number"
+                                        id="valorReceita"
+                                        class="form-control"
+                                        placeholder="Valor (R$)"
+                                        step="0.01"
+                                        required
+                                    >
+                                    <!-- Botão para adicionar. -->
+                                    <button class="btn btn-outline-success" type="submit">
+                                        Adicionar
+                                    </button>
+                                </div>
+                            </form>
+                            <!-- Lista onde as receitas aparecerão. -->
+                            <ul id="listaReceitas" class="list-group"></ul>
+                        </div>
+
+                    <!-- Coluna da direita (Despesas). -->
+                    <div class="col-md-6">
+                        <!-- Título "Despesas". -->
+                        <h3 class="text-danger">Despesas</h3>
+                        <!-- Formulário para adicionar despesas. -->
+                        <form id="formDespesas" class="mb-3">
+                            <!-- Agrupa os campos de digitação. -->
+                            <div class="input-group">
+                                <!-- Campo para digitar a descrição. -->
+                                <input
+                                    type="text"
+                                    id="descDespesa"
+                                    class="form-control"
+                                    placeholder="Descrição (ex: Aluguel)"
+                                    required
+                                >
+                                <!-- Campo para digitar o valor. -->
+                                <input
+                                    type="number"
+                                    id="valorDespesa"
+                                    class="form-control"
+                                    placeholder="Valor (R$)"
+                                    step="0.01"
+                                    required
+                                >
+                                Botão para adicionar.
+                                <button class="btn btn-outline-danger" type="submit">
+                                    Adicionar
+                                </button>
+                            </div>
+                        </form>
+                        <!-- Lista onde as despesas aparecerão. -->
+                        <ul id="listaDespesas" class="list-group"></ul>
+                    </div>
+                </div>
+                <!-- Área para mostrar o resultado final (saldo). -->
+                <div id="resultadoPlanejador" class="mt-5"></div>
+            </div>
+        </section>
+    </body>
+</html>

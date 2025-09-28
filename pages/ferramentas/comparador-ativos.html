@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <!--Garante que acentos (ç, á) funcionem.-->
+        
+        <!--Ajusta o site para funcionar bem em celulares.-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Define o título que aparece na aba do navegador.-->
+        <title>Tio do Lote - Finanças Pessoais</title>
+        <!--Carrega os estilos prontos do Bootstrap.-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!--Carrega seus estilos personalizados (suas cores, fontes).-->
+        <link rel="stylesheet" href="./css/custom-style.css">
+        <!--Carrega a biblioteca para mostrar ícones (redes sociais, etc).-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <!--Define o ícone que aparece na aba do navegador.-->
+        <link rel="icon" type="image/png" href="./img/logo-tio-do-lote-transparente.png">
+        <!--Carrega funções do Bootstrap (ex: menu do celular).-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!--Carrega a ferramenta para criar gráficos.-->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <!--Carrega seu script principal que controla as páginas.-->
+        <script type="module" src="./js/routers.js"></script>
+    </head>
+    <body>
+        <!-- Seção do comparador. -->
+        <section class="py-5">
+            <!-- Centraliza o conteúdo. -->
+            <div class="container">
+                <!-- Cabeçalho da ferramenta. -->
+                <div class="text-center mb-5">
+                    <!-- Ícone de gráfico. -->
+                    <i class="fa-solid fa-chart-line fa-3x mb-3 text-primary-brand"></i>
+                    <!-- Título principal. -->
+                    <h1 class="fw-bold">Comparador de Rentabilidade Histórica</h1>
+                    <!-- Subtítulo da página. -->
+                    <p class="lead">Veja o rendimento simulado de um valor investido em diferentes períodos.</p>
+                </div>
+
+                <!-- Linha para centralizar o cartão de controles. -->
+                <div class="row justify-content-center">
+                    <!-- Define a largura do cartão. -->
+                    <div class="col-lg-10">
+                        <!-- Cartão com os filtros e botões. -->
+                        <div class="card shadow-sm p-4">
+                            <!-- Caixa para os botões de período. -->
+                            <div class="mb-3">
+                                <!-- Texto "Selecione o Período". -->
+                                <label class="form-label fw-bold">Selecione o Período da Simulação:</label>
+                                <!-- Agrupa os botões de período. -->
+                                <div class="btn-group w-100" role="group" id="periodoGroup">
+                                    <!-- Botão de período "Último Ano". -->
+                                    <input type="radio" class="btn-check" name="periodo" id="periodo1" value="Último Ano" checked>
+                                    <label class="btn btn-outline-secondary" for="periodo1">Último Ano</label>
+
+                                    <!-- Botão de período "Últimos 2 Anos". -->
+                                    <input type="radio" class="btn-check" name="periodo" id="periodo2" value="Últimos 2 Anos" >
+                                    <label class="btn btn-outline-secondary" for="periodo2">Últimos 2 Anos</label>
+
+                                    <!-- Botão de período "Últimos 5 Anos". -->
+                                    <input type="radio" class="btn-check" name="periodo" id="periodo3" value="Últimos 5 Anos" >
+                                    <label class="btn btn-outline-secondary" for="periodo3">Últimos 5 Anos</label>
+                                </div>
+                            </div>
+
+                            <!-- Linha para o campo de valor e o botão principal. -->
+                            <div class="row g-3 align-items-end">
+                                <!-- Coluna do campo de valor. -->
+                                <div class="col-md-8">
+                                    <!-- Texto "Se eu tivesse investido". -->
+                                    <label for="valorInvestido" class="form-label fw-bold">Se eu tivesse investido (R$):</label>
+                                    <!-- Campo para digitar o valor do investimento. -->
+                                    <input type="number" class="form-control form-control-lg" id="valorInvestido" value="10000" step="1000">
+                                </div>
+                                <!-- Coluna do botão "Comparar". -->
+                                <div class="col-md-4 d-grid">
+                                    <!-- Botão principal para iniciar a comparação. -->
+                                    <button id="btnComparar" class="btn btn-brand-gold btn-lg">Comparar</button>
+                                </div>
+                            </div>
+
+                            <!-- Linha para separar as seções. -->
+                            <hr>
+                            <!-- Texto "Selecione os ativos". -->
+                            <p class="fw-bold mb-2">Selecione os ativos para comparar:</p>
+                            <!-- Onde a lista de ativos (checkboxes) vai aparecer. -->
+                            <div id="listaAtivos">
+                            </div>
+                            
+                            <!-- Texto de aviso legal em itálico. -->
+                            <p class="text-muted fst-italic small mt-4">
+                                <strong>Aviso:</strong> Esta é uma simulação baseada em dados históricos. Rentabilidade passada não é garantia de rentabilidade futura. Os valores são apenas para fins educacionais e não representam uma recomendação de investimento.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Área que mostra os resultados da comparação. -->
+                <div id="resultadoComparacao" class="mt-5">
+                    <!-- Título da seção de resultados. -->
+                    <h2 class="text-center mb-4">Resultado da Simulação</h2>
+                    <!-- Linha para o ranking e o gráfico. -->
+                    <div class="row">
+                        <!-- Coluna do ranking. -->
+                        <div class="col-lg-4 mb-4 mb-lg-0">
+                            <!-- Cartão para a lista do ranking. -->
+                            <div class="card shadow-sm h-100 p-3">
+                                <!-- Título do ranking. -->
+                                <h4 class="text-center mb-3">Ranking de Ativos</h4>
+                                <!-- Onde a lista do ranking (1º, 2º, 3º...) aparece. -->
+                                <ul id="rankingList" class="list-group list-group-flush">
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Coluna do gráfico. -->
+                        <div class="col-lg-8">
+                            <!-- Cartão para o gráfico. -->
+                            <div class="card shadow-sm h-100 p-3">
+                                <!-- Título do gráfico. -->
+                                <h4 class="text-center mb-3">Rentabilidade ao Longo do Período</h4>
+                                <!-- Onde o gráfico será desenhado. -->
+                                <canvas id="rentabilidadeChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Onde os resultados detalhados de cada ativo aparecem. -->
+                    <div id="ativosResultados" class="mt-4">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
+
+
+

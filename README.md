@@ -12,7 +12,7 @@ Para uma melhor visualização, aqui está um mockup do site em funcionamento.
 
 **➡️ (Importante: Substitua a linha abaixo pela imagem do mockup que você criou!)**
 
-![Preview do site FinanNews em um mockup de notebook](https://i.imgur.com/7d56cMh.png)
+![Preview do site FinanNews em um mockup de notebook](https://github.com/santosluigycp/BLOG_FINANCIAS_v2.0/blob/main/WebDesign%20mockup.png)
 
 *Para inserir sua imagem aqui: faça o upload do seu arquivo de mockup para o repositório do GitHub e depois substitua o link acima pelo link da sua imagem.*
 

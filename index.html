@@ -3,121 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FinanNews - Seu Portal de Finanças</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
+    <title>Tio do Lote - Finanças Pessoais</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/custom-style.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" type="image/png" href="./img/logo-tio-do-lote2.png">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="./js/routers.js"></script>
 </head>
 <body>
-
-    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm sticky-top">
+    <nav class="navbar navbar-expand-lg bg-brand-light shadow-sm sticky-top">
         <div class="container">
-            <a class="navbar-brand logo-text" href="#">FinanNews</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand logo-text d-flex align-items-center" href="/" data-link>
+                <img src="./img/logo-tio-do-lote2.png" alt="Logo Tio do Lote" class="me-2 navbar-logo">
+                Tio do Lote
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Início</a>
+                        <a class="nav-link" href="/" data-link>Início</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Artigos</a>
+                        <a class="nav-link" href="/artigos" data-link>Artigos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Ferramentas</a>
+                        <a class="nav-link" href="/ferramentas" data-link>Ferramentas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sobre Nós</a>
+                        <a class="nav-link" href="/sobre" data-link>Sobre Nós</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <main>
-        <section class="bg-dollar-green text-white text-center p-5">
-            <div class="container">
-                <h1 class="display-4 fw-bold">Descomplicando o Mercado Financeiro</h1>
-                <p class="lead my-3">Notícias, análises e ferramentas para você tomar as melhores decisões.</p>
-                <a href="#" class="btn btn-gold btn-lg fw-bold">Ver Últimas Notícias</a>
-            </div>
-        </section>
+    <main id="app"></main>
 
-        <section class="py-5">
-            <div class="container">
-                <h2 class="text-center fw-bold mb-5">Artigos em Destaque</h2>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100 shadow-sm card-hover">
-                            <img src="https://images.unsplash.com/photo-1624953587687-e2535d16c93f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTY3MHwwfDF8c2VhcmNofDIyfHxpbnZlc3RtZW50fGVufDB8fHx8MTY3OTg3NDM5NA&ixlib=rb-4.0.3&q=80&w=400" class="card-img-top" alt="Gráfico de investimentos">
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title fw-bold">Como começar a investir na bolsa com pouco dinheiro</h5>
-                                <p class="card-text">Descubra os primeiros passos para entrar no mercado de ações de forma segura e consciente.</p>
-                                <a href="#" class="btn btn-outline-dark mt-auto align-self-start">Leia Mais &rarr;</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100 shadow-sm card-hover">
-                            <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTY3MHwwfDF8c2VhcmNofDV8fHBlcnNvbmFsJTIwZmluYW5jZXxlbnwwfHx8fDE2Nzk4NzQ0MzA&ixlib=rb-4.0.3&q=80&w=400" class="card-img-top" alt="Organizando finanças">
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title fw-bold">5 Dicas de organização financeira que você precisa conhecer</h5>
-                                <p class="card-text">Aprenda a controlar seus gastos e a fazer seu dinheiro render mais com dicas práticas.</p>
-                                <a href="#" class="btn btn-outline-dark mt-auto align-self-start">Leia Mais &rarr;</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100 shadow-sm card-hover">
-                            <img src="https://images.unsplash.com/photo-1664447953938-2c3b8a14a0f4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTY3MHwwfDF8c2VhcmNofDEwfHxjcnlwdG9jdXJyZW5jeXxlbnwwfHx8fDE2Nzk4NzQ0NjM&ixlib=rb-4.0.3&q=80&w=400" class="card-img-top" alt="Criptomoedas">
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title fw-bold">O que é Blockchain e por que isso importa para o futuro?</h5>
-                                <p class="card-text">Entenda a tecnologia por trás das criptomoedas e seu potencial para revolucionar mercados.</p>
-                                <a href="#" class="btn btn-outline-dark mt-auto align-self-start">Leia Mais &rarr;</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-5 bg-light">
-            <div class="container">
-                <h2 class="text-center fw-bold mb-5">Ferramentas Úteis</h2>
-                <div class="row text-center">
-                    <div class="col-lg-4 mb-4">
-                        <div class="card card-body shadow-sm h-100">
-                             <i class="fa-solid fa-calculator fa-3x mb-3 text-dollar-green"></i>
-                            <h3 class="h5 fw-bold">Calculadora de Juros</h3>
-                            <p>Simule seus investimentos e entenda o poder dos juros compostos.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-4">
-                        <div class="card card-body shadow-sm h-100">
-                            <i class="fa-solid fa-chart-line fa-3x mb-3 text-dollar-green"></i>
-                            <h3 class="h5 fw-bold">Comparador de Ativos</h3>
-                            <p>Compare o desempenho de diferentes ações e fundos de investimento.</p>
-                        </div>
-                    </div>
-                     <div class="col-lg-4 mb-4">
-                        <div class="card card-body shadow-sm h-100">
-                             <i class="fa-solid fa-wallet fa-3x mb-3 text-dollar-green"></i>
-                            <h3 class="h5 fw-bold">Planejador Financeiro</h3>
-                            <p>Organize seu orçamento mensal e defina metas para o seu futuro.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-dollar-green text-white py-4">
+    <footer class="bg-primary-brand text-white py-4">
         <div class="container d-flex justify-content-between align-items-center">
-            <p class="mb-0">&copy; 2025 FinanNews. Todos os direitos reservados.</p>
+            <p class="mb-0">&copy; 2025 Tio do Lote. Todos os direitos reservados.</p>
             <div>
                 <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
                 <a href="#" class="text-white me-3"><i class="fab fa-youtube fa-lg"></i></a>
@@ -125,7 +52,5 @@
             </div>
         </div>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,38 +1,60 @@
 /* Importando uma fonte do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
+/* --- NOVAS VARIÁVEIS DE CORES BASEADAS NO LOGO "TIO DO LOTE" --- */
+:root {
+    --primary-brand-color: #2F6D6D; /* Verde Água Escuro / Teal */
+    --secondary-brand-color: #CDA458; /* Dourado / Bronze */
+    --background-light: #F8F9FA; /* Fundo cinza claro */
+    --background-navbar: #FDFDFB; /* Cor de fundo do logo (creme/off-white) */
+    --text-dark: #343a40; /* Texto escuro padrão */
+    --text-light: #ffffff; /* Texto claro para fundos escuros */
+}
+
+
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #F8F9FA; /* Um cinza bem claro, quase branco */
+    background-color: var(--background-light);
+    color: var(--text-dark);
 }
 
-/* --- PALETA DE CORES "DÓLAR" --- */
+/* --- APLICAÇÃO DAS NOVAS CORES --- */
 
-.bg-dollar-green {
-    background-color: #1A4D2E; /* Verde escuro e sóbrio */
+/* ADICIONE A CLASSE ABAIXO */
+.bg-brand-light { /* Usada para o Navbar */
+    background-color: var(--background-navbar) !important;
 }
 
-.text-dollar-green {
-    color: #1A4D2E;
+.bg-primary-brand { /* Usada para o Hero e Footer */
+    background-color: var(--primary-brand-color) !important;
 }
 
-.btn-gold {
-    background-color: #FFC107; /* Dourado/Amarelo */
-    color: #1A4D2E; /* Texto verde escuro para contraste */
+.text-primary-brand { /* Usada para ícones e outros textos */
+    color: var(--primary-brand-color) !important;
+}
+
+.btn-brand-gold { /* Botão de destaque */
+    background-color: var(--secondary-brand-color);
+    color: var(--primary-brand-color); /* Texto escuro no botão dourado */
     border: none;
 }
 
-.btn-gold:hover {
-    background-color: #e0a800;
-    color: #1A4D2E;
+.btn-brand-gold:hover {
+    background-color: #b8914d; /* Uma versão um pouco mais escura do dourado no hover */
+    color: var(--primary-brand-color);
 }
 
 .logo-text {
     font-weight: 700;
-    color: #1A4D2E;
+    color: var(--primary-brand-color);
 }
 
-/* Efeito de hover nos cards */
+/* CLASSE ADICIONADA PARA O LOGO */
+.navbar-logo {
+  height: 40px;
+}
+
+/* Efeito de hover nos cards - mantém o preto para um bom contraste */
 .card-hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -40,4 +62,23 @@ body {
 .card-hover:hover {
     transform: translateY(-5px);
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+/* Garante que todas as imagens dos cards tenham a mesma altura sem distorcer */
+.card .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* --- EFEITO DE ANIMAÇÃO NO SCROLL --- */
+
+.fade-in-element {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-element.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
